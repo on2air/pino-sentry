@@ -89,7 +89,7 @@ export class PinoSentryTransport {
     const stack = chunk.stack || '';
 
     Sentry.withScope(scope => {
-      if(chunk.user)scope.setUser(user)
+      if(chunk.user)scope.setUser(chunk.user)
       if (this.isObject(tags)) {
         Object.keys(tags).forEach(tag => scope.setExtra(tag, tags[tag]));
       }
