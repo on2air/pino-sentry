@@ -88,7 +88,8 @@ export class PinoSentryTransport {
     const message = chunk.msg;
     const stack = chunk.stack || '';
 
-    Sentry.configureScope(scope => {
+    Sentry.withScope(scope => {
+      if(chunk.user)scope.setUser(user)
       if (this.isObject(tags)) {
         Object.keys(tags).forEach(tag => scope.setExtra(tag, tags[tag]));
       }
