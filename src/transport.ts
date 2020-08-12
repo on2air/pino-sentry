@@ -104,11 +104,11 @@ export class PinoSentryTransport {
         cb();
       });
     } else {
-      // Capturing Messages
-      setImmediate(() => {
-        Sentry.captureMessage(message, severity);
-        cb();
-      });
+      // // Capturing Messages
+      // setImmediate(() => {
+      //   Sentry.captureMessage(message, severity);
+      //   cb();
+      // });
     }
   }
 
